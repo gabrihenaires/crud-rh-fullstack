@@ -1,0 +1,14 @@
+# --- Ignorar coisas geradas/compiladas (só pro linguist) ---
+crud-rh-api/public/build/**     linguist-vendored
+crud-rh-api/public/hot          linguist-vendored
+crud-rh-ui/dist/**              linguist-vendored
+
+# --- Node/Vendor (já são ignorados pela maioria, mas por garantia) ---
+**/node_modules/**              linguist-vendored
+**/vendor/**                    linguist-vendored
+
+# --- Reclassificar Blade para HTML (reduz “PHP” dominando o gráfico) ---
+crud-rh-api/resources/views/**  linguist-language=HTML
+
+# --- Marcar arquivos de coverage/snapshot como gerados ---
+**/coverage/**                  linguist-generated
