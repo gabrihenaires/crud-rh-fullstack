@@ -1,0 +1,56 @@
+<!-- Modal de status com select custom (bolinha + texto) -->
+<div class="modal-container">
+  <div class="modal-header">
+    <h2 class="modal-title">Alterar status</h2>
+
+    <button class="close-button" type="button" (click)="close()" aria-label="Fechar">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+
+  <div class="modal-content">
+    <div class="form-field">
+      <label class="form-label">Status</label>
+
+      <!-- mat-select com painel customizado via panelClass -->
+      <mat-form-field appearance="outline" class="custom-mat-form">
+        <mat-select [(value)]="status" [panelClass]="'status-select-panel'">
+          <!-- Trigger com indicador colorido + label -->
+          <mat-select-trigger>
+            <span class="select-trigger">
+              <span class="status-indicator" [ngClass]="'status-' + (status || 'em_analise')"></span>
+              <span class="selected-text">{{ statusLabel(status) }}</span>
+            </span>
+          </mat-select-trigger>
+
+          <!-- Opções -->
+          <mat-option value="em_analise">
+            <span class="option-item">
+              <span class="status-indicator status-em_analise"></span>
+              Em análise
+            </span>
+          </mat-option>
+
+          <mat-option value="aprovado">
+            <span class="option-item">
+              <span class="status-indicator status-aprovado"></span>
+              Aprovado
+            </span>
+          </mat-option>
+
+          <mat-option value="reprovado">
+            <span class="option-item">
+              <span class="status-indicator status-reprovado"></span>
+              Reprovado
+            </span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="modal-actions">
+    <button type="button" class="btn btn-secondary" (click)="close()">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="save()" [disabled]="!status">Salvar</button>
+  </div>
+</div>

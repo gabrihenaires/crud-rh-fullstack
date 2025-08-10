@@ -1,0 +1,110 @@
+
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.candidate-modal-backdrop {
+  background: rgba(15, 23, 42, 0.35) !important;     
+  backdrop-filter: blur(6px) saturate(1.06);
+  -webkit-backdrop-filter: blur(6px) saturate(1.06);  
+  transition: backdrop-filter .3s ease, background .3s ease;
+}
+
+
+.candidate-modal-panel .mat-mdc-dialog-container {
+  --mdc-dialog-container-color: transparent;
+  padding: 0 !important;
+  border-radius: 16px !important;
+  box-shadow: none !important; 
+}
+
+
+.cdk-overlay-pane.candidate-modal-panel {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  max-width: 96vw;
+  max-height: 96vh;
+}
+
+
+.status-modal-panel .mat-mdc-dialog-surface {
+  overflow: visible !important;
+}
+
+
+.status-modal-panel .mat-mdc-dialog-content {
+  overflow: visible !important;
+}
+
+
+.mat-mdc-select-panel {
+  background: #fff !important;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 12px 24px rgba(0,0,0,.12);
+  max-height: 50vh;         
+}
+
+
+html {
+  
+  scrollbar-gutter: stable;
+
+  overflow-y: scroll;
+}
+
+
+body.cdk-global-scrollblock {
+
+  overflow: hidden !important;
+  position: fixed;      
+  width: 100%;
+}
+
+html.cdk-global-scrollblock {
+  overflow-y: scroll !important; 
+}
+
+
+
+
+
+

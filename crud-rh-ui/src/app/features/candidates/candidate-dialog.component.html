@@ -1,0 +1,69 @@
+<!-- Modal com layout custom (Inter, gradiente, etc.) -->
+<div class="modal-container">
+  <div class="modal-header">
+    <h2 class="modal-title">
+      {{ data.mode === 'create' ? 'Novo Candidato' : 'Editar Candidato' }}
+    </h2>
+
+    <button class="close-button" type="button" (click)="close()" aria-label="Fechar">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+
+  <div class="modal-content">
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <!-- Nome -->
+      <div class="form-field"
+           [class.has-error]="form.get('name')?.invalid && (form.get('name')?.touched || form.get('name')?.dirty)">
+        <label class="form-label" for="name">Nome</label>
+        <input id="name" type="text" class="form-input" formControlName="name" placeholder="Digite o nome completo" />
+        <span class="form-error" *ngIf="form.get('name')?.invalid && (form.get('name')?.touched || form.get('name')?.dirty)">
+          Nome é obrigatório (mín. 3 caracteres)
+        </span>
+      </div>
+
+      <!-- Email -->
+      <div class="form-field"
+           [class.has-error]="form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)">
+        <label class="form-label" for="email">Email</label>
+        <input id="email" type="email" class="form-input" formControlName="email" placeholder="exemplo@email.com" />
+        <span class="form-error" *ngIf="form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)">
+          Email válido é obrigatório
+        </span>
+      </div>
+
+      <!-- CPF -->
+      <div class="form-field"
+           [class.has-error]="form.get('cpf')?.invalid && (form.get('cpf')?.touched || form.get('cpf')?.dirty)">
+        <label class="form-label" for="cpf">CPF</label>
+        <input id="cpf" type="text" class="form-input" formControlName="cpf" cpfMask placeholder="000.000.000-00" maxlength="14" />
+        <span class="form-error" *ngIf="form.get('cpf')?.invalid && (form.get('cpf')?.touched || form.get('cpf')?.dirty)">
+          CPF no formato 000.000.000-00
+        </span>
+      </div>
+
+      <!-- Telefone -->
+      <div class="form-field"
+           [class.has-error]="form.get('phone')?.invalid && (form.get('phone')?.touched || form.get('phone')?.dirty)">
+        <label class="form-label" for="phone">Telefone</label>
+        <input id="phone" type="text" class="form-input" formControlName="phone" phoneMask placeholder="(41) 99999-0000" maxlength="15" />
+        <span class="form-error" *ngIf="form.get('phone')?.invalid && (form.get('phone')?.touched || form.get('phone')?.dirty)">
+          Telefone é obrigatório
+        </span>
+      </div>
+
+      <!-- Botão submit escondido (permite Enter) -->
+      <button type="submit" class="visually-hidden" aria-hidden="true"></button>
+    </form>
+  </div>
+
+  <div class="modal-actions">
+    <button type="button" class="btn btn-secondary" (click)="close()">
+      Cancelar
+    </button>
+
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+      {{ data.mode === 'create' ? 'Salvar' : 'Atualizar' }}
+    </button>
+  </div>
+</div>

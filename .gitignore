@@ -1,0 +1,31 @@
+# === BACKEND (Laravel) ===
+/crud_rh-api/vendor/
+/crud_rh-api/node_modules/
+/crud_rh-api/public/storage
+/crud_rh-api/storage/*.key
+/crud_rh-api/storage/app/public
+/crud_rh-api/storage/framework
+/crud_rh-api/storage/logs
+/crud_rh-api/.env
+/crud_rh-api/.env.*
+/crud_rh-api/.phpunit.result.cache
+/crud_rh-api/phpunit.xml
+/crud_rh-api/composer.lock
+
+# === FRONTEND (Angular) ===
+/crud_rh-ui/node_modules/
+/crud_rh-ui/dist/
+/crud_rh-ui/tmp/
+/crud_rh-ui/out-tsc
+/crud_rh-ui/.angular/cache
+
+# === GERAL ===
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
